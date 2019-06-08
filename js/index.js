@@ -1,8 +1,7 @@
 let navLinks = document.querySelectorAll(".nav-link")
 console.log(navLinks)
 
-
-for ( let i = 0; i < navLinks.length; i++){
+for (let i = 0; i < navLinks.length; i++){
   navLinks[i].addEventListener("click", (event) => {
     console.log(event)
     event.preventDefault();
@@ -12,18 +11,32 @@ for ( let i = 0; i < navLinks.length; i++){
   })
 }
 
-let paragraphs = document.querySelector("p")
+let paragraphs = document.querySelectorAll("p")
 console.log(paragraphs)
 
-paragraphs.addEventListener('mouseover', (event) => {
-  paragraphs.style.color = 'red';
-})
+for (let i = 0; i < paragraphs.length; i++){
+  paragraphs[i].addEventListener('mouseover', (event) => {
+    paragraphs[i].style.color = 'blue';
+  })
+}
 
 let webPage = document.querySelector('body')
 console.log(webPage)
 
 webPage.addEventListener("wheel", (event) => {
   console.log(webPage.style.backgroundColor)
-  webPage.style.backgroundColor = "red"
+  if (webPage.style.backgroundColor === "white"){
+    webPage.style.backgroundColor = "pink"
+  } else {
+    webPage.style.backgroundColor = "white"
+  }
+})
+
+let logo = document.querySelector(".logo-heading")
+console.log(logo)
+
+logo.addEventListener("mouseenter", (event) =>{
+  event.preventDefault();
+  logo.classList.toggle('logoAlt')
 })
 
