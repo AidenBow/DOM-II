@@ -2,11 +2,20 @@ let navLinks = document.querySelectorAll(".nav-link")
 
 for (let i = 0; i < navLinks.length; i++){
   navLinks[i].addEventListener("click", (event) => {
-    console.log(event)
     event.preventDefault();
+    event.stopPropagation();
     navLinks[i].style.color = "red";
   })
 }
+
+
+let navContainer = document.querySelector(".nav-container")
+console.log(navContainer)
+
+navContainer.addEventListener("click", () => {
+  navContainer.style.backgroundColor = "salmon"
+})
+
 
 let paragraphs = document.querySelectorAll("p")
 
@@ -16,16 +25,18 @@ for (let i = 0; i < paragraphs.length; i++){
   })
 }
 
+
 let webPage = document.querySelector('body')
 
 webPage.addEventListener("wheel", (event) => {
-  console.log(webPage.style.backgroundColor)
   if (webPage.style.backgroundColor === "white"){
     webPage.style.backgroundColor = "pink"
   } else {
     webPage.style.backgroundColor = "white"
   }
+  console.log(webPage.style.backgroundColor)
 })
+
 
 let logo = document.querySelector(".logo-heading")
 
@@ -34,11 +45,13 @@ logo.addEventListener("mouseenter", (event) =>{
   logo.classList.toggle("logoAlt")
 })
 
+
 let headImg = document.querySelector(".intro img")
 
 headImg.addEventListener("drag", (event) => {
   headImg.style.height = "100px"
 })
+
 
 let buttons = document.querySelectorAll(".btn")
 
@@ -53,4 +66,18 @@ buttons[1].addEventListener("copy", () => {
 
 buttons[2].addEventListener("contextmenu", () => {
   buttons[2].style.backgroundColor = "orange"
+})
+
+
+let destinationImg = document.querySelector(".content-destination img")
+
+destinationImg.addEventListener("mouseleave", () => {
+  destinationImg.style.borderRadius = "100px"
+})
+
+
+let mapImg = document.querySelector(".img-content img")
+
+mapImg.addEventListener("auxclick", () => {
+  mapImg.classList.add("contentEvent")
 })
